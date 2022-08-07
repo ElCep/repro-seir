@@ -10,6 +10,9 @@ globals[
 
 turtles-own[
   infected? ;boolen
+  te        ; Mean incubation period
+  ti        ; Mean infectious period
+  tr        ; Mean immune period
 ]
 
 patches-own[
@@ -26,6 +29,9 @@ to setup
     setxy random-xcor random-ycor
     set color blue
     set infected? FALSE
+    set te random-normal te-g 24
+    set ti random-normal ti-g 24
+    set tr random-normal ti-g 24
     ;pen-down
   ]
 
@@ -197,6 +203,51 @@ true
 PENS
 "infected" 1.0 0 -2674135 true "" "plot nbInfected"
 "notInfected" 1.0 0 -13345367 true "" "plot nbNotInfected"
+
+SLIDER
+682
+187
+854
+220
+te-g
+te-g
+0
+100
+24.0
+1
+1
+(hours)
+HORIZONTAL
+
+SLIDER
+682
+233
+854
+266
+ti-g
+ti-g
+0
+100
+24.0
+1
+1
+(hours)
+HORIZONTAL
+
+SLIDER
+682
+275
+854
+308
+tr-g
+tr-g
+0
+100
+24.0
+1
+1
+(hours)
+HORIZONTAL
 
 @#$#@#$#@
 ## WHAT IS IT?
