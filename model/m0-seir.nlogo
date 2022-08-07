@@ -9,6 +9,8 @@ globals[
 ]
 
 turtles-own[
+  next-task ; task the turtle will run during this tick
+  steps     ; ...unless this number is greater than zero,
   infected? ;boolen
   te        ; Mean incubation period
   ti        ; Mean infectious period
@@ -27,11 +29,13 @@ to setup
 
   create-turtles pop-init [
     setxy random-xcor random-ycor
+    set steps 2
     set color blue
+    set next-task [ -> Suseptible ]
     set infected? FALSE
-    set te random-normal te-g 24
-    set ti random-normal ti-g 24
-    set tr random-normal ti-g 24
+    set te round (random-normal te-g 24)
+    set ti round (random-normal ti-g 24)
+    set tr round (random-normal ti-g 24)
     ;pen-down
   ]
 
@@ -45,12 +49,13 @@ end
 
 to go
   ask turtles [
+    ifelse steps > 0
+        [ set steps steps - 1 ]
+        [ run next-task ]
     move
   ]
 
-  ask turtles with[infected? = TRUE][
-    infect
-  ]
+
   update-variable
   tick
 end
@@ -60,16 +65,34 @@ to move ; turtle context
   fd minstep ;* (random-float 1) ^ (-1 / alpha)
 end
 
-to infect ; infected turtle context
-  let notinfectedTurtle turtles with[infected? = FALSE]
-  if any? notinfectedTurtle in-radius infectionRadius [
-   ask  notinfectedTurtle in-radius infectionRadius [
-     set color red
-     set infected? TRUE
-    ]
+to Suseptible
+  let infectedTurtle turtles with[infected? = TRUE]
+  ifelse any? infectedTurtle in-radius infectionRadius [
+    set next-task [ -> Exposed ]
+  ][
+    set steps steps + 1
   ]
-
 end
+
+to Exposed
+  set color yellow
+  set steps te
+  set next-task [ -> infected ]
+end
+
+to infected
+  set color red
+  set steps ti
+  set next-task [ -> recovered ]
+end
+
+to recovered
+  set color green
+  set steps tr
+  set next-task [ -> Suseptible ]
+end
+
+
 
 
 to update-variable
@@ -201,8 +224,10 @@ true
 true
 "" ""
 PENS
-"infected" 1.0 0 -2674135 true "" "plot nbInfected"
-"notInfected" 1.0 0 -13345367 true "" "plot nbNotInfected"
+"infected" 1.0 0 -2674135 true "" "plot count turtles with[color = red]"
+"notInfected" 1.0 0 -13345367 true "" "plot count turtles with[color = blue]"
+"exposed" 1.0 0 -1184463 true "" "plot count turtles with[color = yellow]"
+"recovered" 1.0 0 -14439633 true "" "plot count turtles with[color = green]"
 
 SLIDER
 682
