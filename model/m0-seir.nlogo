@@ -4,8 +4,13 @@ globals[
   infectionRadius ; infection distance
 
   ;variables / observables
-  nbInfected
-  nbNotInfected
+  propInfected
+  propSuseptible
+  propExposed
+  propRecovered
+
+  oldCase ;The number of cases in the previous round
+  incidence ; Thenumber of new cases for this round
 ]
 
 turtles-own[
@@ -25,7 +30,7 @@ to setup
   reset-ticks
   set alpha 1.5   ; for random walk
   set minstep 1 ;for random walk
-  set infectionRadius 1;
+  set infectionRadius infectionRadius-i;
 
   create-turtles pop-init [
     setxy random-xcor random-ycor
@@ -33,9 +38,9 @@ to setup
     set color blue
     set next-task [ -> Suseptible ]
     set infected? FALSE
-    set te round (random-normal te-g 24)
-    set ti round (random-normal ti-g 24)
-    set tr round (random-normal ti-g 24)
+    set te round (random-normal te-g sd_expo_t)
+    set ti round (random-normal ti-g sd_expo_t)
+    set tr round (random-normal ti-g sd_expo_t)
     ;pen-down
   ]
 
@@ -45,6 +50,7 @@ to setup
     set infected? TRUE
   ]
   update-variable
+  set oldCase reportInfected
 end
 
 to go
@@ -57,6 +63,7 @@ to go
 
 
   update-variable
+  set oldCase reportInfected
   tick
 end
 
@@ -93,11 +100,17 @@ to recovered
 end
 
 
-
+to-report reportInfected
+  report count turtles with[color = red]
+end
 
 to update-variable
-  set nbInfected count turtles with [infected? = TRUE]
-  set nbNotInfected count turtles with [infected? = FALSE]
+  set propInfected count turtles with [color = red] / pop-init
+  set propSuseptible count turtles with [color = blue] / pop-init
+  set propExposed count turtles with [color = yellow] / pop-init
+  set propRecovered count turtles with [color = green] / pop-init
+
+  set incidence (reportInfected - oldCase) / pop-init
 end
 @#$#@#$#@
 GRAPHICS-WINDOW
@@ -147,10 +160,10 @@ NIL
 BUTTON
 91
 11
-154
+169
 44
-NIL
-go
+go 750
+while [ticks < 750] [go]
 T
 1
 T
@@ -162,33 +175,33 @@ NIL
 1
 
 SLIDER
-7
-108
-179
-141
+10
+115
+182
+148
 pop-init
 pop-init
 0
-100
-81.0
+10000
+1720.0
 1
 1
 NIL
 HORIZONTAL
 
 SLIDER
-9
-154
-181
+15
+170
 187
+203
 prop-infecte
 prop-infecte
 0
 100
-50.0
+13.0
 1
 1
-NIL
+%
 HORIZONTAL
 
 BUTTON
@@ -241,7 +254,7 @@ te-g
 24.0
 1
 1
-(hours)
+NIL
 HORIZONTAL
 
 SLIDER
@@ -253,10 +266,10 @@ ti-g
 ti-g
 0
 100
-24.0
+52.0
 1
 1
-(hours)
+NIL
 HORIZONTAL
 
 SLIDER
@@ -268,11 +281,99 @@ tr-g
 tr-g
 0
 100
-24.0
+13.0
 1
 1
-(hours)
+NIL
 HORIZONTAL
+
+PLOT
+690
+332
+890
+482
+taux d'incidence
+NIL
+NIL
+0.0
+1.0
+0.0
+0.5
+true
+false
+"" ""
+PENS
+"default" 1.0 0 -16777216 true "" "plot incidence"
+
+SLIDER
+15
+240
+187
+273
+infectionRadius-i
+infectionRadius-i
+0
+10
+1.0
+1
+1
+NIL
+HORIZONTAL
+
+SLIDER
+15
+310
+187
+343
+sd_expo_t
+sd_expo_t
+0
+50
+10.0
+1
+1
+NIL
+HORIZONTAL
+
+TEXTBOX
+15
+150
+165
+168
+initial number of agents
+9
+0.0
+1
+
+TEXTBOX
+20
+205
+170
+231
+Proportion of the population infected at initialization
+9
+0.0
+1
+
+TEXTBOX
+20
+275
+170
+301
+area of infection around a sick agent
+9
+0.0
+1
+
+TEXTBOX
+20
+345
+170
+371
+deviation from the mean in the variability of: te, ti, tr
+9
+0.0
+1
 
 @#$#@#$#@
 ## WHAT IS IT?
@@ -620,6 +721,22 @@ NetLogo 6.2.2
 @#$#@#$#@
 @#$#@#$#@
 @#$#@#$#@
+<experiments>
+  <experiment name="experiment" repetitions="20" runMetricsEveryStep="true">
+    <setup>setup</setup>
+    <go>go</go>
+    <timeLimit steps="750"/>
+    <metric>propInfected</metric>
+    <metric>propSuseptible</metric>
+    <metric>propExposed</metric>
+    <metric>propRecovered</metric>
+    <steppedValueSet variable="pop-init" first="100" step="100" last="1000"/>
+    <steppedValueSet variable="te-g" first="10" step="10" last="50"/>
+    <steppedValueSet variable="ti-g" first="10" step="10" last="50"/>
+    <steppedValueSet variable="tr-g" first="10" step="10" last="50"/>
+    <steppedValueSet variable="prop-infecte" first="1" step="10" last="100"/>
+  </experiment>
+</experiments>
 @#$#@#$#@
 @#$#@#$#@
 default
@@ -633,5 +750,5 @@ true
 Line -7500403 true 150 150 90 180
 Line -7500403 true 150 150 210 180
 @#$#@#$#@
-0
+1
 @#$#@#$#@
