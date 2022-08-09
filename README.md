@@ -103,6 +103,12 @@ This model does not use data. It is a virtual population.
 
 #### Submodels
 
+##### SM1 - S (Susceptible), 
+##### SM2 - E (Exposed), 
+##### SM3 - I (Infectious), 
+##### SM4 - R (Recovered)
+##### SM5 - movements
+
 ## Some results
 
 ### Saltelli exploration 
