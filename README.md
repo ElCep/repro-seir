@@ -107,7 +107,7 @@ This model does not use data. It is a virtual population.
 
 ### Saltelli exploration 
 
-We used [OpenMole](https://openmole.org/Sensitivity.html#Saltellismethod) to perform a sensitivity analysis on this model using Saltelli's method
+We used [OpenMole](https://openmole.org/Sensitivity.html#Saltellismethod) to perform a sensitivity analysis on this model using Saltelli's method.
 
 #### first order 
 
@@ -131,3 +131,5 @@ The full behavior along the factor for all other possible parameter values. This
 | propSuseptible | 0.3096391462987385  | 0.2418628798087571  | 3.94823128609378E-4  | 6.485874078977703E-4 | 3.8263308705805934E-4 | 0.024629448950542473 | 0.0013109342474738404 |
 | propExposed    | 0.42442243869013047 | 0.28117036007792945 | 0.22377288851177024  | 0.15665070112255305  | 0.005814649360613771  | 0.18531038893750787  | 0.020980052366102772  |
 | propRecovered  | 0.5651698166782577  | 0.4362764975546598  | 0.040906111935236446 | 0.00925880931355133  | 0.004024661437198344  | 0.2081930578389597   | 0.007326178062612419  |
+
+![geom bar for total order indice](./results_saltelli/img/totalOrderIndices.png)
