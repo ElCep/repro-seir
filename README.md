@@ -34,9 +34,11 @@ Le pas de temps ...
 As the SEIR model is a compartmentalized model, we have chosen to model it as a finite state machine. 
 
 The agents are in an initial state (S or I), they will go from one state to another following the following process: 
+```
 S -> E - I - R
 ^            |
 |____________|
+```
 
 It is the time (ticks) that will determine the passage from one behavior to another for E, I and R. The passage from S to E is defined by the proximity of agent S with an agent I.
 
