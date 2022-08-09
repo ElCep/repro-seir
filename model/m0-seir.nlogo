@@ -183,7 +183,7 @@ pop-init
 pop-init
 0
 10000
-1720.0
+191.0
 1
 1
 NIL
@@ -730,11 +730,18 @@ NetLogo 6.2.2
     <metric>propSuseptible</metric>
     <metric>propExposed</metric>
     <metric>propRecovered</metric>
-    <steppedValueSet variable="pop-init" first="100" step="100" last="1000"/>
+    <steppedValueSet variable="pop-init" first="50" step="10" last="100"/>
     <steppedValueSet variable="te-g" first="10" step="10" last="50"/>
     <steppedValueSet variable="ti-g" first="10" step="10" last="50"/>
     <steppedValueSet variable="tr-g" first="10" step="10" last="50"/>
-    <steppedValueSet variable="prop-infecte" first="1" step="10" last="100"/>
+    <steppedValueSet variable="prop-infecte" first="1" step="1" last="10"/>
+    <enumeratedValueSet variable="infectionRadius-i">
+      <value value="1"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="sd_expo_t">
+      <value value="10"/>
+      <value value="20"/>
+    </enumeratedValueSet>
   </experiment>
 </experiments>
 @#$#@#$#@
