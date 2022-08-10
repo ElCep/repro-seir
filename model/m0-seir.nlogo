@@ -11,7 +11,7 @@ globals[
 
   oldCase ;The number of cases in the previous round
   incidence ; Thenumber of new cases for this round
-  arrayRecovered ; proportion recovered at each step
+  arraySuseptible ; proportion recovered at each step
   arrayInfected  ; proportion infected at each step
 ]
 
@@ -77,6 +77,7 @@ to move ; turtle context
 end
 
 to Suseptible
+  set color blue
   let infectedTurtle turtles with[infected? = TRUE]
   ifelse any? infectedTurtle in-radius infectionRadius [
     set next-task [ -> Exposed ]
@@ -108,8 +109,8 @@ to-report reportInfected
   report count turtles with[color = red]
 end
 
-to-report reportRecovered
-  report count turtles with[color = green]
+to-report reportSuseptible
+  report count turtles with[color = blue]
 end
 
 to update-variable
@@ -120,7 +121,7 @@ to update-variable
 
   set incidence (reportInfected - oldCase) / pop-init
 
-  set arrayRecovered lput (reportRecovered / pop-init) arrayRecovered
+  set arraySuseptible lput (reportRSuseptible / pop-init) arraySuseptible
   set arrayInfected lput (reportInfected / pop-init) arrayInfected
 
 end
@@ -278,7 +279,7 @@ ti-g
 ti-g
 0
 100
-52.0
+11.0
 1
 1
 NIL
@@ -293,7 +294,7 @@ tr-g
 tr-g
 0
 100
-13.0
+10.0
 1
 1
 NIL
@@ -341,7 +342,7 @@ sd_expo_t
 sd_expo_t
 0
 50
-10.0
+4.0
 1
 1
 NIL
