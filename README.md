@@ -5,6 +5,8 @@ In this repository we have an implementation of a SEIR model in Netlogo as descr
 
 ## todo
 
+- add a array variables for all recovered values
+- add a array for infected
 
 ## ODD (Grimm et al. 2006, 2010)
 
@@ -117,27 +119,10 @@ This model does not use data. It is a virtual population.
 
 We used [OpenMole](https://openmole.org/Sensitivity.html#Saltellismethod) to perform a sensitivity analysis on this model using Saltelli's method.
 
-#### first order 
-
- It is the variance after projecting along the dimension of the factor.
-
-
-| **output**     | **popInit**         | **propInfecte**      | **teG**              | **tiG**                | **trG**               | **infectionRadiusI** | **sd_expo_t**        |
-|----------------|---------------------|----------------------|----------------------|------------------------|-----------------------|----------------------|----------------------|
-| propInfected   | -0.2618833021197146 | -0.1897622563028026  | -0.04315980808736693 | -0.011598849501233882  | -0.00437881186446075  | 0.03825048447295154  | 0.01934329179896787  |
-| propSuseptible | 0.20468372783823577 | 0.009881723166589272 | 2.553862560075607E-4 | -2.3270382282721995E-4 | -8.399272891165563E-7 | 3.672801161307219E-4 | 2.553862560075607E-4 |
-| propExposed    | 0.4267649924002832  | 0.24112973531541124  | 0.18365667076251332  | -0.027733105150649716  | 0.001074967370363857  | 0.10398479286811102  | -0.05734945018321909 |
-| propRecovered  | -0.2618833021197146 | -0.1897622563028026  | -0.04315980808736693 | -0.011598849501233882  | -0.00437881186446075  | 0.03825048447295154  | 0.01934329179896787  |
+360 sim x 50 grp = 18 000 simulations
 
 #### Total order
 
 The full behavior along the factor for all other possible parameter values. This corresponds to the total effect, i.e. first order but also interactions with other factors.
-
-| **output**     | **popInit**         | **propInfecte**     | **teG**              | **tiG**              | **trG**               | **infectionRadiusI** | **sd_expo_t**         |
-|----------------|---------------------|---------------------|----------------------|----------------------|-----------------------|----------------------|-----------------------|
-| propInfected   | 0.5651698166782577  | 0.4362764975546598  | 0.040906111935236446 | 0.00925880931355133  | 0.004024661437198344  | 0.2081930578389597   | 0.007326178062612419  |
-| propSuseptible | 0.3096391462987385  | 0.2418628798087571  | 3.94823128609378E-4  | 6.485874078977703E-4 | 3.8263308705805934E-4 | 0.024629448950542473 | 0.0013109342474738404 |
-| propExposed    | 0.42442243869013047 | 0.28117036007792945 | 0.22377288851177024  | 0.15665070112255305  | 0.005814649360613771  | 0.18531038893750787  | 0.020980052366102772  |
-| propRecovered  | 0.5651698166782577  | 0.4362764975546598  | 0.040906111935236446 | 0.00925880931355133  | 0.004024661437198344  | 0.2081930578389597   | 0.007326178062612419  |
 
 ![geom bar for total order indice](./results_saltelli/img/totalOrderIndices.png)
