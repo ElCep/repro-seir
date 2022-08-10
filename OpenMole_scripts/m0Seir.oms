@@ -11,6 +11,8 @@ val propInfected = Val[Double]
 val propSuseptible = Val[Double]
 val propExposed = Val[Double]
 val propRecovered = Val[Double]
+val arraySuseptible = Val[Array[Double]]
+val arrayInfected = Val[Array[Double]]
 
 val launch = List("random-seed ${mySeed}","setup", "while [ticks < 750] [go]")
             
@@ -39,10 +41,12 @@ val model = NetLogo6Task(
   outputs += propInfected mapped "propRecovered",
   outputs += propSuseptible mapped "propSuseptible",
   outputs += propExposed mapped "propExposed",
-  outputs += propRecovered mapped "propRecovered"
+  outputs += propRecovered mapped "propRecovered",
+  outputs += arraySuseptible mapped "arraySuseptible",
+  outputs += arrayInfected mapped "arrayInfected",
 
   // Default values. Can be removed if OpenMOLE Vals are set by values coming from the workflow
-  /*
+  
   popInit := 1720.0,
   propInfecte := 13.0,
   teG := 24.0,
@@ -51,7 +55,7 @@ val model = NetLogo6Task(
   infectionRadiusI := 1.0,
   sd_expo_t := 10.0,
   mySeed := 0
-  */
+  
 )
 
-//model hook display
+model hook display
