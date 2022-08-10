@@ -33,7 +33,7 @@ to setup
   set alpha 1.5   ; for random walk
   set minstep 1 ;for random walk
   set infectionRadius infectionRadius-i;
-  set arrayRecovered []
+  set arraySuseptible []
   set arrayInfected []
 
   create-turtles pop-init [
@@ -121,7 +121,7 @@ to update-variable
 
   set incidence (reportInfected - oldCase) / pop-init
 
-  set arraySuseptible lput (reportRSuseptible / pop-init) arraySuseptible
+  set arraySuseptible lput (reportSuseptible / pop-init) arraySuseptible
   set arrayInfected lput (reportInfected / pop-init) arrayInfected
 
 end
