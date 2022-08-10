@@ -11,6 +11,8 @@ globals[
 
   oldCase ;The number of cases in the previous round
   incidence ; Thenumber of new cases for this round
+  arrayRecovered ; proportion recovered at each step
+  arrayInfected  ; proportion infected at each step
 ]
 
 turtles-own[
@@ -31,6 +33,8 @@ to setup
   set alpha 1.5   ; for random walk
   set minstep 1 ;for random walk
   set infectionRadius infectionRadius-i;
+  set arrayRecovered []
+  set arrayInfected []
 
   create-turtles pop-init [
     setxy random-xcor random-ycor
@@ -104,6 +108,10 @@ to-report reportInfected
   report count turtles with[color = red]
 end
 
+to-report reportRecovered
+  report count turtles with[color = green]
+end
+
 to update-variable
   set propInfected count turtles with [color = red] / pop-init
   set propSuseptible count turtles with [color = blue] / pop-init
@@ -111,6 +119,10 @@ to update-variable
   set propRecovered count turtles with [color = green] / pop-init
 
   set incidence (reportInfected - oldCase) / pop-init
+
+  set arrayRecovered lput (reportRecovered / pop-init) arrayRecovered
+  set arrayInfected lput (reportInfected / pop-init) arrayInfected
+
 end
 @#$#@#$#@
 GRAPHICS-WINDOW
