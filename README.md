@@ -5,8 +5,10 @@ In this repository we have an implementation of a SEIR model in Netlogo as descr
 
 ## todo
 
-- add a array variables for all recovered values
-- add a array for infected
+- There is something to do with space (at least the Moran index). Because there are spatial phenomena that are linked to the movements 
+
+![](./img/m0seir_capture_%C3%A9cran.png)
+
 
 ## ODD (Grimm et al. 2006, 2010)
 
