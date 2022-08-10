@@ -126,3 +126,5 @@ We used [OpenMole](https://openmole.org/Sensitivity.html#Saltellismethod) to per
 The full behavior along the factor for all other possible parameter values. This corresponds to the total effect, i.e. first order but also interactions with other factors.
 
 ![geom bar for total order indice](./results_saltelli/img/totalOrderIndices.png)
+
+it seem than `trG` and `sd_expo-t` doesn't play un role in this model
