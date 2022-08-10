@@ -44,7 +44,7 @@ to setup
     set infected? FALSE
     set te round (random-normal te-g sd_expo_t)
     set ti round (random-normal ti-g sd_expo_t)
-    set tr round (random-normal ti-g sd_expo_t)
+    set tr round (random-normal tr-g sd_expo_t)
     ;pen-down
   ]
 
