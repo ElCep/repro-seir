@@ -80,7 +80,9 @@ to Suseptible
   set color blue
   let infectedTurtle turtles with[infected? = TRUE]
   ifelse any? infectedTurtle in-radius infectionRadius [
-    set next-task [ -> Exposed ]
+    if (random 1.0) < 1 - exp ( - beta * (count infectedTurtle in-radius infectionRadius)) [
+      set next-task [ -> Exposed ]
+      ]
   ][
     set steps steps + 1
   ]
@@ -175,8 +177,8 @@ BUTTON
 11
 169
 44
-go 750
-while [ticks < 750] [go]
+go 730
+while [ticks < 730] [go]
 T
 1
 T
@@ -196,8 +198,8 @@ pop-init
 pop-init
 0
 10000
-191.0
-1
+500.0
+10
 1
 NIL
 HORIZONTAL
@@ -211,7 +213,7 @@ prop-infecte
 prop-infecte
 0
 100
-13.0
+1.0
 1
 1
 %
@@ -251,7 +253,7 @@ true
 "" ""
 PENS
 "infected" 1.0 0 -2674135 true "" "plot count turtles with[color = red]"
-"notInfected" 1.0 0 -13345367 true "" "plot count turtles with[color = blue]"
+"susceptible" 1.0 0 -13345367 true "" "plot count turtles with[color = blue]"
 "exposed" 1.0 0 -1184463 true "" "plot count turtles with[color = yellow]"
 "recovered" 1.0 0 -14439633 true "" "plot count turtles with[color = green]"
 
@@ -264,7 +266,7 @@ te-g
 te-g
 0
 100
-24.0
+3.0
 1
 1
 NIL
@@ -279,7 +281,7 @@ ti-g
 ti-g
 0
 100
-11.0
+7.0
 1
 1
 NIL
@@ -293,8 +295,8 @@ SLIDER
 tr-g
 tr-g
 0
-100
-10.0
+800
+365.0
 1
 1
 NIL
@@ -342,7 +344,7 @@ sd_expo_t
 sd_expo_t
 0
 50
-4.0
+0.0
 1
 1
 NIL
@@ -384,6 +386,31 @@ TEXTBOX
 170
 371
 deviation from the mean in the variability of: te, ti, tr
+9
+0.0
+1
+
+SLIDER
+10
+385
+182
+418
+beta
+beta
+0
+1
+0.5
+0.1
+1
+NIL
+HORIZONTAL
+
+TEXTBOX
+10
+420
+160
+438
+infection rate
 9
 0.0
 1
@@ -735,25 +762,37 @@ NetLogo 6.2.2
 @#$#@#$#@
 @#$#@#$#@
 <experiments>
-  <experiment name="experiment" repetitions="20" runMetricsEveryStep="true">
+  <experiment name="experiment_simple" repetitions="50" runMetricsEveryStep="true">
     <setup>setup</setup>
     <go>go</go>
-    <timeLimit steps="750"/>
+    <timeLimit steps="730"/>
     <metric>propInfected</metric>
     <metric>propSuseptible</metric>
     <metric>propExposed</metric>
     <metric>propRecovered</metric>
-    <steppedValueSet variable="pop-init" first="50" step="10" last="100"/>
-    <steppedValueSet variable="te-g" first="10" step="10" last="50"/>
-    <steppedValueSet variable="ti-g" first="10" step="10" last="50"/>
-    <steppedValueSet variable="tr-g" first="10" step="10" last="50"/>
-    <steppedValueSet variable="prop-infecte" first="1" step="1" last="10"/>
+    <enumeratedValueSet variable="pop-init">
+      <value value="500"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="te-g">
+      <value value="3"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="ti-g">
+      <value value="7"/>
+    </enumeratedValueSet>
     <enumeratedValueSet variable="infectionRadius-i">
       <value value="1"/>
     </enumeratedValueSet>
+    <enumeratedValueSet variable="beta">
+      <value value="0.5"/>
+    </enumeratedValueSet>
     <enumeratedValueSet variable="sd_expo_t">
-      <value value="10"/>
-      <value value="20"/>
+      <value value="0"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="tr-g">
+      <value value="365"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="prop-infecte">
+      <value value="1"/>
     </enumeratedValueSet>
   </experiment>
 </experiments>
