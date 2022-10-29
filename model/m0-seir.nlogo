@@ -105,12 +105,14 @@ end
 to infected
   set color red
   set steps ti
+  set infected? TRUE
   set next-task [ -> recovered ]
 end
 
 to recovered
   set color green
   set steps tr
+  set infected? FALSE
   set next-task [ -> Suseptible ]
 end
 
@@ -320,7 +322,7 @@ tr-g
 tr-g
 0
 800
-365.0
+336.0
 1
 1
 NIL
