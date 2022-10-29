@@ -128,7 +128,7 @@ to readFile
     set juliaData lput in1 juliaData
   ]
   file-close
-  show juliaData
+
 end
 
 to-report reportInfected
