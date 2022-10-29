@@ -117,12 +117,30 @@ At initialization, we generate a (explorable) population of agents, and a propor
 This model does not use data. It is a virtual population.
 
 #### Submodels
+As we said in , The agents are in an initial state (S or I), they will go from one state to another following the following process: 
+```
+S -> E - I - R
+^            |
+|____________|
+```
+The succession of steps is managed by a finite state machine architecture, the agents go through the different phases. The SM5 describes the process of movement in the space that is shared by all the states of the automaton.
 
 ##### SM1 - S (Susceptible), 
-##### SM2 - E (Exposed), 
-##### SM3 - I (Infectious), 
+If there are infected agents in a given radius (whose value effect is explored (`infectionRadius-i`)), then the agent count the number of infected neighbors (IN) and draws a probability (A) of being infected in turn. 
+
+If `A < 1 - exp ( - beta * NI)` , then he become Exposed. `beta` is the infection rate.
+
+##### SM2 - E (Exposed)
+It is a transitional phase, the exposed agents can no longer be contaminated, but will develop the disease within a variable period of time. During this period (`te`) they are not infectious.
+
+##### SM3 - I (Infectious/infected)
+This is a period (`ti`) during which agents are likely to infect other agents in their environment. Once the period of infection is over, it passes in recovered.
+
 ##### SM4 - R (Recovered)
+The recovered phase is a time (`tr`) during which, the agents cannot be re-infected. Once this time has elapsed, it returns to the suseptible phase.
+
 ##### SM5 - movements
+Before moving the agents will select a random orientation between 0 and 360 degrees. Then they move forward by 1.
 
 ## Some results
 
