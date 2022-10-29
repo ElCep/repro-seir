@@ -8,11 +8,14 @@ globals[
   propSuseptible
   propExposed
   propRecovered
-
+  juliaData ; data from equation in julia
+  tickJuliaData ; juste one julia data from ticks
   oldCase ;The number of cases in the previous round
   incidence ; Thenumber of new cases for this round
   arraySuseptible ; proportion recovered at each step
   arrayInfected  ; proportion infected at each step
+  tickIntegrale  ; distance simulated infected and juila infected
+  integraleInfected ; sum of distance simuled and julia
 ]
 
 turtles-own[
@@ -35,6 +38,10 @@ to setup
   set infectionRadius infectionRadius-i;
   set arraySuseptible []
   set arrayInfected []
+  set tickJuliaData []
+  set juliaData []
+  readFile
+  uptateData
 
   create-turtles pop-init [
     setxy random-xcor random-ycor
@@ -68,6 +75,7 @@ to go
 
   update-variable
   set oldCase reportInfected
+  uptateData
   tick
 end
 
@@ -106,6 +114,22 @@ to recovered
   set next-task [ -> Suseptible ]
 end
 
+to uptateData
+  set tickJuliaData first juliaData
+  set tickIntegrale abs (tickJuliaData - (reportInfected / pop-init))
+  set integraleInfected integraleInfected + tickIntegrale
+  set juliaData but-first juliaData
+end
+
+to readFile
+  file-open "./data/infected.csv"
+  while [not file-at-end?][
+    let in1 file-read
+    set juliaData lput in1 juliaData
+  ]
+  file-close
+  show juliaData
+end
 
 to-report reportInfected
   report count turtles with[color = red]
@@ -198,7 +222,7 @@ pop-init
 pop-init
 0
 10000
-500.0
+1000.0
 10
 1
 NIL
@@ -304,9 +328,9 @@ HORIZONTAL
 
 PLOT
 690
-332
+330
 890
-482
+480
 taux d'incidence
 NIL
 NIL
@@ -329,7 +353,7 @@ infectionRadius-i
 infectionRadius-i
 0
 10
-1.0
+2.0
 1
 1
 NIL
@@ -344,7 +368,7 @@ sd_expo_t
 sd_expo_t
 0
 50
-0.0
+1.0
 1
 1
 NIL
@@ -399,7 +423,7 @@ beta
 beta
 0
 1
-0.5
+0.2
 0.1
 1
 NIL
@@ -414,6 +438,35 @@ infection rate
 9
 0.0
 1
+
+MONITOR
+875
+185
+967
+230
+NIL
+tickJuliaData
+17
+1
+11
+
+PLOT
+890
+330
+1090
+480
+Julia-Simu
+NIL
+NIL
+0.0
+10.0
+0.0
+10.0
+true
+false
+"" ""
+PENS
+"default" 1.0 0 -16777216 true "" "plot integraleInfected"
 
 @#$#@#$#@
 ## WHAT IS IT?
