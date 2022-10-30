@@ -1,8 +1,6 @@
 # Work of the reproducibility group : repro-seir 
 In this repository we have an implementation of a SEIR model in Netlogo as described [here](Repro_SEIR-1.pdf)
 
-- In this model the time step is not clear (is it the day or an other time step ?)
-- we tried to follow data produced with EDO from Julia using NSGA algo. Julia data are processed with 
 
 ```
 data <- read.csv("repro-seir/model/data-EDO-Julia.csv")
