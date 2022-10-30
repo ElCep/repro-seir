@@ -13,6 +13,7 @@ write.csv(infected,"github/repro-seir/model/data/infected2.csv", row.names = F, 
 ## todo
 
 - There is something to do with space (at least the Moran index). Because there are spatial phenomena that are linked to the movements 
+- A partir de result_bs/simple_replication... preprarer les données pour raphaël et tracer la courbe
 
 ![](./img/m0seir_capture_%C3%A9cran.png)
 
@@ -179,6 +180,7 @@ it take 1h19 on muse environnement
 |infectionRadius | 4 |
 
 Objectifs infected: 24.867
+
 Objectifs Exposed : 26.79
 
 Sample 61
