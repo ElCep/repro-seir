@@ -231,7 +231,7 @@ pop-init
 pop-init
 0
 10000
-570.0
+1000.0
 10
 1
 NIL
@@ -246,7 +246,7 @@ prop-infecte
 prop-infecte
 0
 100
-3.0
+1.0
 1
 1
 %
@@ -299,7 +299,7 @@ te-g
 te-g
 0
 100
-40.0
+49.0
 1
 1
 NIL
@@ -314,7 +314,7 @@ ti-g
 ti-g
 0
 100
-4.0
+1.0
 1
 1
 NIL
@@ -329,7 +329,7 @@ tr-g
 tr-g
 0
 800
-130.0
+2.0
 1
 1
 NIL
@@ -362,7 +362,7 @@ infectionRadius-i
 infectionRadius-i
 0
 10
-2.0
+4.0
 1
 1
 NIL
@@ -432,7 +432,7 @@ beta
 beta
 0
 1
-0.2
+0.1
 0.1
 1
 NIL
@@ -869,7 +869,7 @@ NetLogo 6.2.2
 @#$#@#$#@
 @#$#@#$#@
 <experiments>
-  <experiment name="experiment_simple" repetitions="50" runMetricsEveryStep="true">
+  <experiment name="simple_replication_experiment" repetitions="1000" runMetricsEveryStep="true">
     <setup>setup</setup>
     <go>go</go>
     <timeLimit steps="730"/>
@@ -878,25 +878,25 @@ NetLogo 6.2.2
     <metric>propExposed</metric>
     <metric>propRecovered</metric>
     <enumeratedValueSet variable="pop-init">
-      <value value="500"/>
+      <value value="1000"/>
     </enumeratedValueSet>
     <enumeratedValueSet variable="te-g">
-      <value value="3"/>
+      <value value="49"/>
     </enumeratedValueSet>
     <enumeratedValueSet variable="ti-g">
-      <value value="7"/>
-    </enumeratedValueSet>
-    <enumeratedValueSet variable="infectionRadius-i">
       <value value="1"/>
     </enumeratedValueSet>
+    <enumeratedValueSet variable="infectionRadius-i">
+      <value value="4"/>
+    </enumeratedValueSet>
     <enumeratedValueSet variable="beta">
-      <value value="0.5"/>
+      <value value="0.1"/>
     </enumeratedValueSet>
     <enumeratedValueSet variable="sd_expo_t">
-      <value value="0"/>
+      <value value="2"/>
     </enumeratedValueSet>
     <enumeratedValueSet variable="tr-g">
-      <value value="365"/>
+      <value value="2"/>
     </enumeratedValueSet>
     <enumeratedValueSet variable="prop-infecte">
       <value value="1"/>
