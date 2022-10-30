@@ -153,12 +153,14 @@ One result allows to reach 9.25, but the number of samples is not sufficient.
 
 We will therefore focus on the input parameters as being the most likely to reproduce the identified dynamics.
 
-popInit     : 573
-propInfecte : 3.834702
-teG         : 40.66871
-tiG         : 4.1
-trG         : 130
-infectionRadius : 2
+| variable  | value |
+|-----------|-------|
+|popInit     | 573 |
+|propInfecte | 3.834702 |
+|teG         | 40.66871 |
+|tiG         | 4.1 |
+|trG         | 130 |
+|infectionRadius | 2 |
 
 Objectifs infected: 12.1
 
@@ -166,13 +168,15 @@ Objectifs infected: 12.1
 
 it take 1h19 on muse environnement
 
-popInit     : 1000
-propInfecte : 1
-teG         : 49
-tiG         : 1
-trG         : 2
-beta        : 0.1
-infectionRadius : 4
+| variable  | value |
+|-----------|-------|
+|popInit     | 1000 |
+|propInfecte | 1 |
+|teG         | 49 |
+|tiG         | 1 |
+|trG         | 2 |
+|beta        | 0.1 |
+|infectionRadius | 4 |
 
 Objectifs infected: 24.867
 Objectifs Exposed : 26.79
