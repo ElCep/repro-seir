@@ -3,6 +3,7 @@ val propInfecte = Val[Double]
 val teG = Val[Double]
 val tiG = Val[Double]
 val trG = Val[Double]
+val beta = Val[Double]
 val infectionRadiusI = Val[Double]
 val sd_expo_t = Val[Double]
 val mySeed = Val[Int]
@@ -11,10 +12,10 @@ val propInfected = Val[Double]
 val propSuseptible = Val[Double]
 val propExposed = Val[Double]
 val propRecovered = Val[Double]
-val arraySuseptible = Val[Array[Double]]
-val arrayInfected = Val[Array[Double]]
+val integraleInfected = Val[Double]
+val integraleExposed = Val[Double]
 
-val launch = List("random-seed ${mySeed}","setup", "while [ticks < 750] [go]")
+val launch = List("random-seed ${mySeed}","setup", "while [ticks < 730] [go]")
             
 val model = NetLogo6Task(
   workDirectory / "m0-seir.nlogo",
@@ -31,10 +32,12 @@ val model = NetLogo6Task(
   inputs += trG mapped "tr-g",
   inputs += infectionRadiusI mapped "infectionRadius-i",
   inputs += sd_expo_t mapped "sd_expo_t",
+  inputs += beta mapped "beta",
   outputs += propInfecte mapped "prop-infecte",
   outputs += teG mapped "te-g",
   outputs += tiG mapped "ti-g",
   outputs += trG mapped "tr-g",
+  inputs += beta mapped "beta",
   outputs += infectionRadiusI mapped "infectionRadius-i",
   outputs += sd_expo_t mapped "sd_expo_t",
   /*observable*/
@@ -42,20 +45,19 @@ val model = NetLogo6Task(
   outputs += propSuseptible mapped "propSuseptible",
   outputs += propExposed mapped "propExposed",
   outputs += propRecovered mapped "propRecovered",
-  outputs += arraySuseptible mapped "arraySuseptible",
-  outputs += arrayInfected mapped "arrayInfected",
-
+  outputs += integraleInfected mapped "integraleInfected",
+  outputs += integraleExposed mapped "integraleExposed",
   // Default values. Can be removed if OpenMOLE Vals are set by values coming from the workflow
   
-  popInit := 1720.0,
-  propInfecte := 13.0,
-  teG := 24.0,
-  tiG := 52.0,
-  trG := 13.0,
-  infectionRadiusI := 1.0,
-  sd_expo_t := 10.0,
-  mySeed := 0
+  // popInit := 1720.0,
+  // propInfecte := 13.0,
+  // teG := 24.0,
+  // tiG := 52.0,
+  // trG := 13.0,
+  // infectionRadiusI := 1.0,
+  sd_expo_t := 2.0,
+  // mySeed := 0
   
 )
 
-model hook display
+//model hook display
