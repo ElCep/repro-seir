@@ -8,21 +8,19 @@ val replications = Replication(
                       propExposed aggregate median, propRecovered aggregate median  )
 )
 
+// it's replication how is evaluated in the model
 val sensitivAnalyse = SensitivitySaltelli(
       evaluation = replications,
       inputs = Seq(
-          popInit in (10.0, 500.0),
+          popInit in (10.0, 1000.0),
           propInfecte in (1.0, 15.0),
-          teG in (1.0, 10.0),
-          tiG in (1.0, 10.0),
-          trG in (1.0, 10.0),
-          infectionRadiusI in (1.0, 4.0),
-          sd_expo_t in (1.0, 10.0)
+          infectionRadiusI in (1.0, 5.0),
+          beta in (0.0,1.0)
         ),
       outputs = Seq(propInfected, propSuseptible, propExposed, propRecovered),
-      sample = 70 // 7 parametres x 10 chemins le nombre de trajectoir est r de k+1  campolongo et al. 2007, An effective screening design for sensitivity analysis of large models
+      sample = 100 // 7 parametres x 10 chemins le nombre de trajectoir est r de k+1  campolongo et al. 2007, An effective screening design for sensitivity analysis of large models
       //level = 10
-    ) hook (workDirectory / "results_saltelli")
+    ) hook (workDirectory / "results_saltelli2")
 
 
 
