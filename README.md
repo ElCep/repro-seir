@@ -144,6 +144,26 @@ Before moving the agents will select a random orientation between 0 and 360 degr
 
 ## Some results
 
+### NSGA
+
+#### Mono-objectif sur l'infection
+![resultat nsga2](./img/nsga2_evol250.png)
+
+The exploration with the NSGA2 agrorythm shows us that it is difficult to reduce the fitness between the simulated data and the julia data below 12. 
+
+One result allows to reach 9.25, but the number of samples is not sufficient. 
+
+We will therefore focus on the input parameters as being the most likely to reproduce the identified dynamics.
+
+popInit     : 573
+propInfecte : 3.834702
+teG         : 40.66871
+tiG         : 4.1
+trG         : 130
+infectionRadius : 2
+
+Objectifs infected: 12.1
+
 ### Saltelli exploration 
 
 We used [OpenMole](https://openmole.org/Sensitivity.html#Saltellismethod) to perform a sensitivity analysis on this model using Saltelli's method.
