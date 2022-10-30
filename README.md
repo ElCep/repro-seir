@@ -164,6 +164,23 @@ infectionRadius : 2
 
 Objectifs infected: 12.1
 
+#### Multi Objectifs
+
+popInit     : 1000
+propInfecte : 1
+teG         : 49
+tiG         : 1
+trG         : 2
+beta        : 0.1
+infectionRadius : 4
+
+Objectifs infected: 24.867
+Objectifs Exposed : 26.79
+
+Sample 61
+
+![](./img/nsga2_evol2000_zoom.png)
+
 ### Saltelli exploration 
 
 We used [OpenMole](https://openmole.org/Sensitivity.html#Saltellismethod) to perform a sensitivity analysis on this model using Saltelli's method.
