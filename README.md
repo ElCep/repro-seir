@@ -166,6 +166,8 @@ Objectifs infected: 12.1
 
 #### Multi Objectifs
 
+it take 1h19 on muse environnement
+
 popInit     : 1000
 propInfecte : 1
 teG         : 49
@@ -181,7 +183,18 @@ Sample 61
 
 ![](./img/nsga2_evol2000_zoom.png)
 
+#### Replication 
+
+![](./img/sample/sample10.png)
+![](./img/sample/sample30.png)
+![](./img/sample/sample50.png)
+
+We consider that the variability of the results stabilizes after 30 replications. 
+
+
 ### Saltelli exploration 
+
+_20 min on muse environnement_
 
 We used [OpenMole](https://openmole.org/Sensitivity.html#Saltellismethod) to perform a sensitivity analysis on this model using Saltelli's method.
 
@@ -193,4 +206,7 @@ The full behavior along the factor for all other possible parameter values. This
 
 ![geom bar for total order indice](./results_saltelli/img/totalOrderIndices.png)
 
-it seem than `trG` and `sd_expo-t` doesn't play un role in this model
+The initial population and the distance at which the other agents are contaminated play a large role in the variability of the results (0.4 < x < 0.6).
+
+### Pattern Space Exploration (PSE)
+
