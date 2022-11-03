@@ -56,9 +56,9 @@ to setup
     set color blue
     set next-task [ -> Suseptible ]
     set infected? FALSE
-    set te round (random-normal te-g sd_expo_t)
-    set ti round (random-normal ti-g sd_expo_t)
-    set tr round (random-normal tr-g sd_expo_t)
+    set te round (random-exponential te-g)
+    set ti round (random-exponential ti-g)
+    set tr round (random-exponential tr-g)
     ;pen-down
   ]
 
@@ -164,11 +164,11 @@ end
 GRAPHICS-WINDOW
 210
 10
-647
-448
+498
+299
 -1
 -1
-13.0
+8.5
 1
 10
 1
@@ -178,10 +178,10 @@ GRAPHICS-WINDOW
 1
 1
 1
--16
-16
--16
-16
+0
+32
+0
+32
 0
 0
 1
@@ -290,56 +290,11 @@ PENS
 "exposed" 1.0 0 -1184463 true "" "plot count turtles with[color = yellow]"
 "recovered" 1.0 0 -14439633 true "" "plot count turtles with[color = green]"
 
-SLIDER
-682
-187
-854
-220
-te-g
-te-g
-0
-100
-49.0
-1
-1
-NIL
-HORIZONTAL
-
-SLIDER
-682
-233
-854
-266
-ti-g
-ti-g
-0
-100
-1.0
-1
-1
-NIL
-HORIZONTAL
-
-SLIDER
-682
-275
-854
-308
-tr-g
-tr-g
-0
-800
-2.0
-1
-1
-NIL
-HORIZONTAL
-
 PLOT
-690
-330
-890
-480
+660
+195
+860
+345
 taux d'incidence
 NIL
 NIL
@@ -362,22 +317,7 @@ infectionRadius-i
 infectionRadius-i
 0
 10
-4.0
-1
-1
-NIL
-HORIZONTAL
-
-SLIDER
-15
-310
-187
-343
-sd_expo_t
-sd_expo_t
-0
-50
-2.0
+1.0
 1
 1
 NIL
@@ -414,45 +354,20 @@ area of infection around a sick agent
 1
 
 TEXTBOX
-20
-345
-170
-371
-deviation from the mean in the variability of: te, ti, tr
-9
-0.0
-1
-
-SLIDER
-10
-385
-182
-418
-beta
-beta
-0
-1
-0.1
-0.1
-1
-NIL
-HORIZONTAL
-
-TEXTBOX
-10
-420
-160
-438
+595
+230
+655
+248
 infection rate
 9
 0.0
 1
 
 PLOT
-890
-330
-1090
-480
+860
+195
+1060
+345
 Julia-Simu
 NIL
 NIL
@@ -464,14 +379,14 @@ true
 true
 "" ""
 PENS
-"default" 1.0 0 -2674135 true "" "plot integraleInfected"
-"pen-1" 1.0 0 -1184463 true "" "plot integraleExposed"
+"infectious" 1.0 0 -2674135 true "" "plot integraleInfected"
+"exposed" 1.0 0 -1184463 true "" "plot integraleExposed"
 
 MONITOR
-875
-235
-997
-280
+860
+350
+982
+395
 NIL
 integraleInfected
 17
@@ -521,6 +436,120 @@ propRecovered
 17
 1
 11
+
+TEXTBOX
+565
+90
+595
+108
+ti = 7
+12
+0.0
+1
+
+TEXTBOX
+570
+155
+615
+173
+tr = 365
+12
+0.0
+1
+
+TEXTBOX
+565
+35
+605
+53
+te = 3
+12
+0.0
+1
+
+TEXTBOX
+595
+215
+665
+233
+beta = 0.5
+12
+0.0
+1
+
+TEXTBOX
+15
+310
+205
+426
+Ce sur quoi on peu jouer : \n- radius d'infection\n- densité d'individus (relation entre taille de l'espace et population initiale)
+12
+0.0
+1
+
+INPUTBOX
+510
+35
+560
+95
+te-g
+3.0
+1
+0
+Number
+
+INPUTBOX
+510
+95
+560
+155
+ti-g
+7.0
+1
+0
+Number
+
+INPUTBOX
+510
+155
+570
+215
+tr-g
+365.0
+1
+0
+Number
+
+INPUTBOX
+510
+215
+590
+275
+beta
+0.5
+1
+0
+Number
+
+TEXTBOX
+370
+305
+495
+323
+espace 1024 patches
+12
+0.0
+1
+
+TEXTBOX
+505
+15
+655
+33
+Valeurs fixé par l'équation
+11
+0.0
+1
 
 @#$#@#$#@
 ## WHAT IS IT?
