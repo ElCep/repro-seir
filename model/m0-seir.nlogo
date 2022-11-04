@@ -8,6 +8,7 @@ globals[
   propSuseptible
   propExposed
   propRecovered
+  popDensity ; numbre of agents by patches
   juliaDataInfected ; data from equation in julia
   JuliaDataExposed
   tickJuliaDataInfected ; juste one julia data from ticks
@@ -153,6 +154,7 @@ to update-variable
   set propSuseptible count turtles with [color = blue] / pop-init
   set propExposed count turtles with [color = yellow] / pop-init
   set propRecovered count turtles with [color = green] / pop-init
+  set popDensity pop-init / count patches
 
   set incidence (reportInfected - oldCase) / pop-init
 
@@ -231,25 +233,10 @@ pop-init
 pop-init
 0
 10000
-1000.0
+1100.0
 10
 1
 NIL
-HORIZONTAL
-
-SLIDER
-15
-170
-187
-203
-prop-infecte
-prop-infecte
-0
-100
-1.0
-1
-1
-%
 HORIZONTAL
 
 BUTTON
@@ -280,15 +267,15 @@ NIL
 0.0
 10.0
 0.0
-110.0
+1.0
 true
 true
 "" ""
 PENS
-"infected" 1.0 0 -2674135 true "" "plot count turtles with[color = red]"
-"susceptible" 1.0 0 -13345367 true "" "plot count turtles with[color = blue]"
-"exposed" 1.0 0 -1184463 true "" "plot count turtles with[color = yellow]"
-"recovered" 1.0 0 -14439633 true "" "plot count turtles with[color = green]"
+"infected" 1.0 0 -2674135 true "" "plot count turtles with[color = red] / 1024"
+"susceptible" 1.0 0 -13345367 true "" "plot count turtles with[color = blue] / 1024"
+"exposed" 1.0 0 -1184463 true "" "plot count turtles with[color = yellow] / 1024"
+"recovered" 1.0 0 -14439633 true "" "plot count turtles with[color = green] / 1024"
 
 PLOT
 660
@@ -334,11 +321,11 @@ initial number of agents
 1
 
 TEXTBOX
-20
-205
-170
-231
-Proportion of the population infected at initialization
+595
+270
+645
+360
+Proportion of the population (%) infected at initialization
 9
 0.0
 1
@@ -550,6 +537,28 @@ Valeurs fixé par l'équation
 11
 0.0
 1
+
+INPUTBOX
+510
+275
+590
+335
+prop-infecte
+1.0
+1
+0
+Number
+
+MONITOR
+10
+165
+127
+210
+Densité d'agents
+popDensity
+3
+1
+11
 
 @#$#@#$#@
 ## WHAT IS IT?
