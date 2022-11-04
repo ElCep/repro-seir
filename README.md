@@ -169,23 +169,33 @@ Objectifs infected: 12.1
 
 it take 1h19 on muse environnement
 
-| variable  | value |
-|-----------|-------|
-|popInit     | 1000 |
-|propInfecte | 1 |
-|teG         | 49 |
-|tiG         | 1 |
-|trG         | 2 |
-|beta        | 0.1 |
-|infectionRadius | 4 |
+![](./img/nsga2_evol1300.png)
 
-Objectifs infected: 24.867
+We see an effect of density. Increasing the density of agents at the beginning of the simulation tends to minimize the distance on the gap to the exposed.
 
-Objectifs Exposed : 26.79
+![](./img/nsga2_evol1300_zoom.png)
 
-Sample 61
+If we now look at the effect of distance to infection, there appears to be an almost linear effect on reducing distance to the curve with those exposed to infections.
 
-![](./img/nsga2_evol2000_zoom.png)
+![](./img/nsga2_evol1300_radius_zoom.png)
+
+
+
+|    | evolution.evaluated|   popInit| infectionRadiusI| objective.Infected| objective.Exposed| evolution.samples|
+|:---|-------------------:|---------:|----------------:|---------------------------:|--------------------------:|-----------------:|
+|4   |               99648|  500.0000|         5.000000|                    39.93565|                   15.27531|               100|
+|20  |               99648|  509.4897|         1.098709|                    10.43335|                  402.41404|                77|
+|22  |               99648|  760.6908|         1.065601|                    14.42981|                  383.10745|                80|
+|25  |               99648|  589.2968|         1.291253|                    14.26530|                  385.76045|                76|
+|36  |               99648|  789.5183|         1.000000|                    14.46096|                  379.36289|                96|
+|45  |               99648|  500.0000|         1.000000|                    10.22456|                  409.26171|               100|
+|80  |               99648| 1469.6906|         1.840862|                    37.68966|                   28.17732|                81|
+|81  |               99648|  541.1418|         1.053527|                    10.68018|                  400.03271|                85|
+|89  |               99648|  699.4551|         1.371874|                    22.39172|                  119.05545|                99|
+|95  |               99648|  699.4551|         1.000000|                    12.01031|                  397.65855|                97|
+|119 |               99648| 1500.0000|         1.000000|                    30.02561|                   75.25370|               100|
+|142 |               99648| 1500.0000|         5.000000|                    40.59532|                   11.37110|               100|
+|151 |               99648| 1216.4995|         1.016900|                    27.18854|                   93.44332|                75|
 
 #### Replication 
 

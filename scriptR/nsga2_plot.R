@@ -1,4 +1,5 @@
 library(ggplot2)
+library(knitr)
 
 data.df <- read.csv("~/github/repro-seir/resultats_nsga2/population1300.csv")
 data.df$densityInit <- data.df$popInit/1024 
@@ -21,21 +22,24 @@ ggplot(data = data.df)+
 
 ggsave("~/github/repro-seir/img/nsga2_evol1300.png", width = 10, height = 5)
 
-# ggplot(data = data.df)+
-#   geom_point(aes(x = objective.integraleExposed, y = objective.integraleInfected, size = evolution.samples))+
-#   geom_segment(aes(x = 35, y = 35, xend = 27, yend = 25),
-#               arrow = arrow(length = unit(0.5, "cm")),
-#               colour = "grey")+
-#   annotate(geom="text", x=36, y=36, label="3")+
-#   theme_bw()+
-#   labs(title = "2000 evolutions for NSGA2", 
-#        subtitle = "multi-obj : infected and exposed",
-#        x = paste0("\u2211","\u0394","Exposed"),
-#        y = paste0("\u2211","\u0394","Infected"))+
-#   xlim(0, 50)+
-#   ylim(0,50)
+ggplot(data = data.df)+
+  geom_point(aes(x = objective.integraleExposed, y = objective.integraleInfected, size = evolution.samples, colour = infectionRadiusI))+
+  # geom_segment(aes(x = 35, y = 35, xend = 27, yend = 25),
+  #             arrow = arrow(length = unit(0.5, "cm")),
+  #             colour = "grey")+
+  # annotate(geom="text", x=36, y=36, label="3")+
+  theme_bw()+
+  labs(title = "2000 evolutions for NSGA2",
+       subtitle = "multi-obj : infected and exposed",
+       x = paste0("\u2211","\u0394","Exposed"),
+       y = paste0("\u2211","\u0394","Infected"))+
+  xlim(0, 50)+
+  ylim(30,45)
+
+ggsave("~/github/repro-seir/img/nsga2_evol1300_zoom.png", width = 8, height = 5)
 # 
-# ggsave("~/github/repro-seir/img/nsga2_evol2000_zoom.png", width = 8, height = 5)
 # 
-# 
-# data.df[34,1:12]
+ sel <- data.df$evolution.samples >= 75
+small.df <- data.df[sel,2:7]
+knitr::kable(small.df, "pipe") 
+ 
