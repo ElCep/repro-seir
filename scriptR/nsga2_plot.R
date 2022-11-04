@@ -29,14 +29,14 @@ ggplot(data = data.df)+
   #             colour = "grey")+
   # annotate(geom="text", x=36, y=36, label="3")+
   theme_bw()+
-  labs(title = "2000 evolutions for NSGA2",
+  labs(title = "1300 evolutions for NSGA2",
        subtitle = "multi-obj : infected and exposed",
        x = paste0("\u2211","\u0394","Exposed"),
        y = paste0("\u2211","\u0394","Infected"))+
   xlim(0, 50)+
   ylim(30,45)
 
-ggsave("~/github/repro-seir/img/nsga2_evol1300_zoom.png", width = 8, height = 5)
+ggsave("~/github/repro-seir/img/nsga2_evol1300_radius_zoom.png", width = 8, height = 5)
 # 
 # 
  sel <- data.df$evolution.samples >= 75

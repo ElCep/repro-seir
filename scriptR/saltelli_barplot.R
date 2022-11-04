@@ -14,4 +14,4 @@ ggplot(data = data.melt)+
   facet_grid(.~output)+
   theme(axis.text.x = element_text(angle = 45, hjust=1))
 
-ggsave("results_saltelli/img/totalOrderIndices.png")
+ggsave("img/totalOrderIndices.png")
