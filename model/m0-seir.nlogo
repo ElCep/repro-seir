@@ -940,6 +940,36 @@ NetLogo 6.2.2
       <value value="1"/>
     </enumeratedValueSet>
   </experiment>
+  <experiment name="experiment" repetitions="30" runMetricsEveryStep="true">
+    <setup>setup</setup>
+    <go>go</go>
+    <timeLimit steps="730"/>
+    <metric>propInfected</metric>
+    <metric>propSuseptible</metric>
+    <metric>propExposed</metric>
+    <metric>propRecovered</metric>
+    <enumeratedValueSet variable="pop-init">
+      <value value="1100"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="te-g">
+      <value value="3"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="ti-g">
+      <value value="7"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="infectionRadius-i">
+      <value value="1"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="beta">
+      <value value="0.5"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="tr-g">
+      <value value="365"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="prop-infecte">
+      <value value="1"/>
+    </enumeratedValueSet>
+  </experiment>
 </experiments>
 @#$#@#$#@
 @#$#@#$#@
