@@ -224,3 +224,9 @@ The initial population and the distance at which the other agents are contaminat
 
 ### Pattern Space Exploration (PSE)
 
+
+## What about Space
+
+### Saltelli exploration
+
+![geom bar for total order indice](./results_saltelli/img/totalOrderIndices_sm1.png)
