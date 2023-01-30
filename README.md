@@ -218,7 +218,7 @@ We used [OpenMole](https://openmole.org/Sensitivity.html#Saltellismethod) to per
 
 The full behavior along the factor for all other possible parameter values. This corresponds to the total effect, i.e. first order but also interactions with other factors.
 
-![geom bar for total order indice](./results_saltelli/img/totalOrderIndices.png)
+![geom bar for total order indice](./img/totalOrderIndices.png)
 
 The initial population and the distance at which the other agents are contaminated play a large role in the variability of the results (0.4 < x < 0.6).
 
@@ -229,4 +229,4 @@ The initial population and the distance at which the other agents are contaminat
 
 ### Saltelli exploration
 
-![geom bar for total order indice](./results_saltelli/img/totalOrderIndices_sm1.png)
+![geom bar for total order indice](./img/totalOrderIndices_sm1.png)
