@@ -230,3 +230,17 @@ The initial population and the distance at which the other agents are contaminat
 ### Saltelli exploration
 
 ![geom bar for total order indice](./img/totalOrderIndices_sm1.png)
+
+### Avec une petite Population initiale
+popInit==500 and infectionRadiusI == 2, the objective is to reduce the integral between the observed data and the simulated data.
+
+![Inflence de la distance dans le processus de random walk](./img/space_influence_distance500_2.png)
+
+![Inflence de la distl'angle dans le processus de random walk](./img/space_influence_angle500_2.png)
+
+
+### Avec une population plus grande
+
+![Inflence de la distance dans le processus de random walk](./img/space_influence_distance1000_2.png)
+
+![Inflence de la distl'angle dans le processus de random walk](./img/space_influence_angle1000_2.png)
