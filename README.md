@@ -145,7 +145,11 @@ This is a period (`ti`) during which agents are likely to infect other agents in
 The recovered phase is a time (`tr`) during which, the agents cannot be re-infected. Once this time has elapsed, it returns to the suseptible phase.
 
 ##### SM5 - movements
-Before moving the agents will select a random orientation between 0 and 360 degrees. Then they move forward by 1.
+Before moving the agents will select a random orientation between 0 and 360 degrees. Then they move forward by 1 (in `m0-seir`). 
+
+In the `m1-seir` version the path distance and rotation become input parameters of the model. 
+
+In the `m2-seir` version the agents jump from one cell to another in the grid in a random way.
 
 ## Some results
 
