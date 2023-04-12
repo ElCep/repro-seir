@@ -946,12 +946,12 @@ NetLogo 6.2.2
     <setup>setup</setup>
     <go>go</go>
     <timeLimit steps="730"/>
-    <metric>propInfected</metric>
     <metric>propSuseptible</metric>
     <metric>propExposed</metric>
+    <metric>propInfected</metric>
     <metric>propRecovered</metric>
     <enumeratedValueSet variable="pop-init">
-      <value value="1100"/>
+      <value value="20000"/>
     </enumeratedValueSet>
     <enumeratedValueSet variable="te-g">
       <value value="3"/>
@@ -969,7 +969,7 @@ NetLogo 6.2.2
       <value value="365"/>
     </enumeratedValueSet>
     <enumeratedValueSet variable="prop-infecte">
-      <value value="1"/>
+      <value value="0.1"/>
     </enumeratedValueSet>
   </experiment>
 </experiments>
