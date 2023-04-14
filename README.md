@@ -149,7 +149,7 @@ Before moving the agents will select a random orientation between 0 and 360 degr
 
 In the `m1-seir` version the path distance and rotation become input parameters of the model. 
 
-In the `m2-seir` version the agents jump from one cell to another in the grid in a random way.
+In the `m2-seir` version the agents jump from one cell to another in the grid in a random way. this model is a re-implementation of the movement and initialization that has been requested from all agent-based models
 
 ## Some results
 
