@@ -3,7 +3,7 @@ library(reshape2)
 
 setwd("~/github/repro-seir/")
 
-data.df <- read.csv("results_bs/m0-seir experiment-table.csv", skip = 6)
+data.df <- read.csv("results_bs/m2-seir experiment-table_140420231645.csv", skip = 6)
 
 data.df %>%
   group_by(X.step.) %>%
@@ -17,7 +17,7 @@ data.df %>%
             SdR = sd(propRecovered),
             ) -> data.s
 
-write_csv(data.s, "results_bs/m0-seir_summerised.csv")
+write_csv(data.s, "results_bs/m2-seir_summerised.csv")
 
 sel <- subset(data.df, select = c("X.step.", "propInfected", "propSuseptible", 
                                   "propExposed", "propRecovered"))

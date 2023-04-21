@@ -274,10 +274,10 @@ true
 true
 "" ""
 PENS
-"infected" 1.0 0 -2674135 true "" "plot count turtles with[color = red] / 1024"
-"susceptible" 1.0 0 -13345367 true "" "plot count turtles with[color = blue] / 1024"
-"exposed" 1.0 0 -1184463 true "" "plot count turtles with[color = yellow] / 1024"
-"recovered" 1.0 0 -14439633 true "" "plot count turtles with[color = green] / 1024"
+"infected" 1.0 0 -2674135 true "" "plot count turtles with[color = red]"
+"susceptible" 1.0 0 -13345367 true "" "plot count turtles with[color = blue]"
+"exposed" 1.0 0 -1184463 true "" "plot count turtles with[color = yellow]"
+"recovered" 1.0 0 -14439633 true "" "plot count turtles with[color = green]"
 
 PLOT
 785
