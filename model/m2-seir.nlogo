@@ -235,7 +235,7 @@ pop-init
 pop-init
 0
 20000
-20000.0
+890.0
 10
 1
 NIL
@@ -306,7 +306,7 @@ infectionRadius-i
 infectionRadius-i
 0
 10
-1.0
+1.5
 1
 1
 NIL
@@ -482,7 +482,7 @@ INPUTBOX
 685
 213
 te-g
-3.0
+49.0
 1
 0
 Number
@@ -493,7 +493,7 @@ INPUTBOX
 685
 273
 ti-g
-7.0
+1.0
 1
 0
 Number
@@ -515,7 +515,7 @@ INPUTBOX
 715
 393
 beta
-0.5
+0.1
 1
 0
 Number
@@ -904,7 +904,7 @@ false
 Polygon -7500403 true true 270 75 225 30 30 225 75 270
 Polygon -7500403 true true 30 75 75 30 270 225 225 270
 @#$#@#$#@
-NetLogo 6.2.2
+NetLogo 6.3.0
 @#$#@#$#@
 @#$#@#$#@
 @#$#@#$#@
@@ -918,7 +918,7 @@ NetLogo 6.2.2
     <metric>propExposed</metric>
     <metric>propRecovered</metric>
     <enumeratedValueSet variable="pop-init">
-      <value value="1000"/>
+      <value value="20000"/>
     </enumeratedValueSet>
     <enumeratedValueSet variable="te-g">
       <value value="49"/>
@@ -927,19 +927,16 @@ NetLogo 6.2.2
       <value value="1"/>
     </enumeratedValueSet>
     <enumeratedValueSet variable="infectionRadius-i">
-      <value value="4"/>
+      <value value="1.5"/>
     </enumeratedValueSet>
     <enumeratedValueSet variable="beta">
       <value value="0.1"/>
     </enumeratedValueSet>
-    <enumeratedValueSet variable="sd_expo_t">
-      <value value="2"/>
-    </enumeratedValueSet>
     <enumeratedValueSet variable="tr-g">
-      <value value="2"/>
+      <value value="365"/>
     </enumeratedValueSet>
     <enumeratedValueSet variable="prop-infecte">
-      <value value="1"/>
+      <value value="0.1"/>
     </enumeratedValueSet>
   </experiment>
   <experiment name="experiment" repetitions="30" runMetricsEveryStep="true">
