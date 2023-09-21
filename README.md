@@ -4,6 +4,10 @@ Le dossier `model` contient 3 fichiers qui sont 3 évolutions du modèle.
 - `m1-seir.nlogo` est le modèle m0, dans lequel on a ajouté des sliders pour pouvoir tester l'influence du random-walk sur l'épidémie. On a des agents qui parcourent donc des distances plus ou moins grandes, et qui font des rotations plus ou moins grandes.
 - `m2-seir.nlogo` est le modèle m0, dans lequel on changer la manière dont les agents se déplacent pour coller a l'ODD proposer par R. Duboz qui propose de choisir une cellule de grille au hasard. Le nombre d'agents initiaux et la taille du monde sont aussi modifiés.
 
+Ce modèle a été implementé dans d'autres langages : 
+- [Gama](https://gama-platform.org/) 1.9.2 : https://github.com/ElCep/repro-seir-gama
+- [Cormas](https://github.com/cormas/cormas) : https://github.com/olekscode/REDEpidemiologicalModel
+
 # Work of the reproducibility group : repro-seir 
 In this repository we have an implementation of a SEIR model in Netlogo as described [here](Repro_SEIR-1.pdf)
 
